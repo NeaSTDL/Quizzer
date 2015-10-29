@@ -1,0 +1,32 @@
+//- 
+  *******************
+  TestView Template
+  *******************
+  This template renders at test's questioning pages.
+
+| <script id="testView" type='text/template'>
+#appTest
+  //- Question text rendering area
+  #appQuestion.question-holder.col-sm-5
+    strong.col-sm-12
+      | <%- rc.Title %>
+    em.text-center.col-sm-12
+      | <%- rc.Text %>
+  //- Image rendering area
+  #appImage.col-sm-7.text-center
+    img.image-holder(src!="<%- rc.Image %>")
+  //- Answers rendering area
+  #appAnswers.answers-holder.col-sm-12
+    a#Answer0.btn.btn-default.col-sm-6(value=0)
+      | <%- rc.Answers[0] %>
+    a#Answer1.btn.btn-default.col-sm-6(value=1) 
+      | <%- rc.Answers[1] %>
+    a#Answer2.btn.btn-default.col-sm-6(value=2)
+      | <%- rc.Answers[2] %>
+    a#Answer3.btn.btn-default.col-sm-6(value=3)
+      | <%- rc.Answers[3] %>
+  //- Controls rendering area
+  #appControls.controls-holder.col-sm-10.col-sm-offset-1
+    a#Before.btn.btn-default.col-sm-4.col-sm-offset-1 Before
+    a#Next.btn.btn-default.col-sm-4.col-sm-offset-2 Next
+| </script>   

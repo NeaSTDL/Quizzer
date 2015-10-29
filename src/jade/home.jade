@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    title= "Example Questioning Application"
+    meta(charset="utf-8") 
+    //- Template for plugins css includes 
+    include ./templates/plugins_css.jade
+    link(rel='stylesheet', href='css/app.css')
+    //- Template for plugins js includes 
+    include ./templates/plugins_js.jade
+  body
+    //- Main application 
+    include ./templates/app.jade
+    //- Template include on page
+    include ./templates/appStart.jade
+    include ./templates/appTest.jade
+    include ./templates/appResults.jade
+    include ./templates/appError.jade
+    //- Page main script
+    script(type='text/javascript', src='js/main.js')
+
+    

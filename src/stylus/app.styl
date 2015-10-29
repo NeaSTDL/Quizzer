@@ -1,0 +1,137 @@
+//
+// ***********************
+// Stylus Application File
+// ***********************
+// This file contains the application styling directives
+//
+
+// ************
+//  Variables
+// ************
+
+  $main-color = #0D47A1                 // For app title bg
+  $secondary-color = #1976D2            // For test answers bg 
+  $text-color = #E3F2FD                 // For test answers and controls text color
+  $control-color = #4CAF50              // For command controls bg
+  $selected-color = #FF5722 !important  // For selected controls bg
+  $finish-color = #F44336 !important    // For finish button bg 
+  $correct-answer-color = #A5D6A7       // For correct answers bg on Results
+  $incorrect-answer-color = #EF9A9A     // For incorrect answers bg on Results
+
+// ********
+//  Mixins
+// ********
+
+  border-radius()
+    -webkit-border-radius arguments
+    -moz-border-radius arguments
+    border-radius arguments
+    
+  border_width(t, b, l, r)
+    border-top-width t
+    border-bottom-width b
+    border-left-width l
+    border-right-width r
+
+  margin_space(t, b, l, r)
+    margin-top t
+    margin-bottom b
+    margin-left l
+    margin-right r
+
+  padding_space(t, b, l, r)
+    padding-top t
+    padding-bottom b
+    padding-left l
+    padding-right r
+    
+  shadow(w, h, r_sh, r_pr, color)
+    -webkit-box-shadow: w h r_sh r_pr color;
+    -moz-box-shadow: w h r_sh r_pr color;
+    box-shadow: w h r_sh r_pr color;
+
+// *********************
+//  App Start Appearance
+// *********************
+
+  #appStart #appMessage
+    padding_space(1em, 1em, 0, 0)
+    
+// *********************
+//  App Error Appearance
+// *********************
+
+  #appError #appMessage
+    padding_space(1em, 1em, 0, 0)
+    
+// ********************
+//  App Test Appearance
+// ********************
+    
+  .quiz-app
+    width 60em
+    max-width 60em
+    margin 2em
+    shadow(0px, 0px, 9px, 1px, #9E9E9E)
+    border-radius 10px 10px 10px 10px
+    
+  .quiz-app .title-holder
+    background-color $main-color
+    color $text-color
+    border-radius 10px 10px 0px 0px
+    border black solid
+    border_width(1px, 1px, 1px, 1px)
+    
+  .quiz-app .title-holder h3
+    margin_space(0.5em, 0.5em, 0, 0)
+    
+  .quiz-app .body-holder
+    padding_space(1em, 1em, 0, 0)
+    border-radius 0px 0px 10px 10px
+    border black solid
+    border_width(0, 1px, 1px, 1px)
+    
+  .quiz-app .image-holder
+    padding_space(1em, 1em, 0, 0)
+    width 100%
+     
+  .quiz-app .answers-holder a.btn 
+    background-color $secondary-color
+    color $text-color
+    
+  .quiz-app .question-holder
+    padding_space(1em, 0, 0, 0)
+    
+  .quiz-app .question-holder #Title
+    padding_space(1em, 1em, 1em, 1em)
+    
+  .quiz-app .question-holder #Text
+    padding_space(1em, 1em, 1em, 1em)
+    word-wrap break-word
+    font-size 14px
+    
+  .quiz-app .controls-holder
+    padding_space(1em, 0, 0, 0)
+    
+  .quiz-app .controls-holder a.btn
+    background-color $control-color
+    color $text-color
+    
+  .selected
+    background-color $selected-color
+    
+  .finish
+    background-color $finish-color
+
+// ***********************
+//  App Results Appearance
+// ***********************
+
+  td.correct 
+    background-color $correct-answer-color 
+    
+  td.incorrect
+    background-color $incorrect-answer-color 
+
+  #appPoints 
+    padding_space(1em, 1em, 0, 0)

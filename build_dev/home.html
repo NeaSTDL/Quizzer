@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example Questioning Application</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="plugins/Bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script type="text/javascript" src="plugins/JQuery/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="plugins/Underscore/underscore.js"></script>
+    <script type="text/javascript" src="plugins/Bootstrap/bootstrap.js"></script>
+  </head>
+  <body>
+    <div id="app" class="quiz-app row">
+      <div id="appTitle" class="title-holder col-sm-12 text-center">
+        <h3>Quiz Application</h3>
+      </div>
+      <div id="appBody" class="body-holder col-sm-12"></div>
+    </div><script id="startView" type='text/template'>
+    <div id="appStart">
+      <div id="appMessage" class="col-sm-12 text-center"><strong>Press the button to begin the test!</strong></div>
+      <div id="appCommand" class="col-sm-12 text-center"><a id="Start" class="btn btn-default">Inititate</a></div>
+    </div></script><script id="testView" type='text/template'>
+    <div id="appTest">
+      <div id="appQuestion" class="question-holder col-sm-5"><strong class="col-sm-12"><%- rc.Title %></strong><em class="text-center col-sm-12"><%- rc.Text %></em></div>
+      <div id="appImage" class="col-sm-7 text-center"><img src="<%- rc.Image %>" class="image-holder"></div>
+      <div id="appAnswers" class="answers-holder col-sm-12"><a id="Answer0" value="0" class="btn btn-default col-sm-6"><%- rc.Answers[0] %></a><a id="Answer1" value="1" class="btn btn-default col-sm-6">
+           
+          <%- rc.Answers[1] %></a><a id="Answer2" value="2" class="btn btn-default col-sm-6"><%- rc.Answers[2] %></a><a id="Answer3" value="3" class="btn btn-default col-sm-6"><%- rc.Answers[3] %></a></div>
+      <div id="appControls" class="controls-holder col-sm-10 col-sm-offset-1"><a id="Before" class="btn btn-default col-sm-4 col-sm-offset-1">Before</a><a id="Next" class="btn btn-default col-sm-4 col-sm-offset-2">Next</a></div>
+    </div></script>   <script id="resultsView" type='text/template'>
+    <div id="appResults" class="col-sm-12">
+      <table id="appScoreTable" class="table"> 
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Correct Answer</th>
+            <th>Selected Answer</th>
+          </tr>
+        </thead>
+        <tbody><% _.each( rc, function( Question ){ %>
+          <tr>
+            <td><%- Question.Title %></td>
+            <td><%- Question.Answers[Question.Correct] %></td><% if ( Question.Answers[Question.State] == Question.Answers[Question.Correct]){ %>
+            <td class="correct"><%- Question.Answers[Question.State] %></td><% } else { %>
+            <td class="incorrect"><%- Question.Answers[Question.State] %></td><% } %>
+          </tr><% }); %>  
+        </tbody>
+      </table>
+      <div id="appPoints" class="col-sm-12 text-center"><strong class="col-sm-3 col-sm-offset-3">Total points:</strong><em class="col-sm-3"></em></div>
+      <div id="appControl" class="col-sm-12 text-center">              <a id="Continue" class="btn btn-default">Continue</a></div>
+    </div></script>  <script id="errorView" type='text/template'>
+    <div id="appError">
+      <div id="appMessage" class="col-sm-12 text-center"><strong>An error has ocurred! Please try again later.</strong></div>
+      <div id="appCommand" class="col-sm-12 text-center"><a id="Return" class="btn btn-default">Return </a></div>
+    </div></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>

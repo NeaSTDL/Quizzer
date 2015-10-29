@@ -1,0 +1,34 @@
+//- 
+  *******************
+  ResultView Template
+  *******************
+  This template renders at test's end page.
+  
+| <script id="resultsView" type='text/template'>
+#appResults.col-sm-12
+  //- Scoring table area
+  table#appScoreTable.table 
+    thead
+      tr
+        th Title
+        th Correct Answer
+        th Selected Answer
+    tbody
+      <% _.each( rc, function( Question ){ %>
+      tr
+        td <%- Question.Title %>
+        td <%- Question.Answers[Question.Correct] %>
+        <% if ( Question.Answers[Question.State] == Question.Answers[Question.Correct]){ %>
+        td.correct <%- Question.Answers[Question.State] %>
+        <% } else { %>
+        td.incorrect <%- Question.Answers[Question.State] %>
+        <% } %>
+      <% }); %>  
+  //- Point calculation area
+  #appPoints.col-sm-12.text-center
+    strong.col-sm-3.col-sm-offset-3 Total points:
+    em.col-sm-3
+  //- Control's rendering area
+  #appControl.col-sm-12.text-center               
+    a#Continue.btn.btn-default Continue
+| </script>  
